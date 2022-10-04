@@ -34,8 +34,11 @@ public class User {
 	@Size(max = 20)
 	private String name;
 
-	private String date_of_birth;
+	private int age;
 
+	private String date_of_birth;
+	
+	private String user_name;
 	@NotBlank
 	@Size(max = 120)
 	private String password;
@@ -44,13 +47,12 @@ public class User {
 	private Set<User_types> user_types;
 
 	@Builder.Default
-	private boolean is_active =false;
-	
+	private boolean is_active = false;
+
 	@CreatedDate
 	private Date created_on;
-	
+
 	@LastModifiedDate
 	private Date updated_on;
-
 
 }
