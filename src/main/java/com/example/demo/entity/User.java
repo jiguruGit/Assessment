@@ -1,7 +1,6 @@
 package com.example.demo.entity;
 
 import java.util.Date;
-import java.util.Set;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -19,7 +18,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Document(collation = "User")
+@Document(collection = "User")
 @Data
 @Getter
 @Setter
@@ -43,8 +42,11 @@ public class User {
 	@Size(max = 120)
 	private String password;
 
+//	
+//	@Transient
+//	@JsonProperty(value =  "user_types")
 	@DBRef
-	private Set<User_types> user_types;
+	private User_types user_types;
 
 	@Builder.Default
 	private boolean is_active = false;
