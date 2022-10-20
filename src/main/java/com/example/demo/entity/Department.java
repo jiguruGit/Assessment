@@ -6,6 +6,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,14 +26,17 @@ public class Department {
 
 	@Id
 	private String id;
-
+@Field(name = "dept_name")
 //	@Indexed(unique = true)
-	private String dept_name;
+	private String deptName;
 
 	@CreatedDate
-	private Date created_on;
+	@Field(name = "created_on")
+
+	private Date createdOn;
 
 	@LastModifiedDate
-	private Date updated_on;
+	@Field(name = "updated_on")
+	private Date updatedOn;
 
 }

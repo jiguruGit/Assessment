@@ -10,6 +10,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,7 +19,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Document(collection = "User")
+@Document(collection = "users")
 @Data
 @Getter
 @Setter
@@ -31,30 +32,33 @@ public class User {
 
 	@NotBlank
 	@Size(max = 20)
+	@Field(name = "name")
 	private String name;
-
+	@Field(name = "age")
 	private int age;
-
-	private String date_of_birth;
-	
-	private String user_name;
+	@Field(name = "date_of_birth")
+	private String dateOfBirth;
+	@Field(name = "user_name")
+	private String userName;
 	@NotBlank
 	@Size(max = 120)
+	@Field(name = "password")
 	private String password;
 
-//	
-//	@Transient
-//	@JsonProperty(value =  "user_types")
 	@DBRef
-	private User_types user_types;
+	@Field(name = "user_types")
+	private UserTypes userTypes;
 
 	@Builder.Default
-	private boolean is_active = false;
+	@Field(name = "is_active")
+	private boolean isActive = false;
 
 	@CreatedDate
-	private Date created_on;
+	@Field(name = "created_on")
+	private Date createdOn;
 
 	@LastModifiedDate
-	private Date updated_on;
+	@Field(name = "updated_on")
+	private Date updatedOn;
 
 }
