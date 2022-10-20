@@ -48,7 +48,7 @@ public class Employee {
 	private boolean isActive = false;
 
 	@DBRef
-	private User user;
+	private Users user;
 
 	@DBRef
 	private Department department;

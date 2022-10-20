@@ -4,12 +4,12 @@ import java.util.Optional;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.example.demo.entity.User;
+import com.example.demo.entity.Users;
 
-public interface UserRepository extends MongoRepository<User, String> {
+public interface UserRepository extends MongoRepository<Users, String> {
 	
 	
-	public  Optional<User> findByName(String name);
+	public  Optional<Users> findByName(String name);
 	
 
 }
